@@ -2,64 +2,7 @@
 
 Hey there! I've implemented the Parking Lot system based on the UML diagram provided. It's written in Java and kept very straightforward and easy to read.
 
-```mermaid
-classDiagram
-    class ParkingLot {
-        -List~Slot~ slots
-        -List~Ticket~ tickets
-        -List~Vehicle~ vehicles
-        +createSlot() : void
-        +parkVehicle(Vehicle) : Ticket
-        +exitVehicle(Ticket) : double
-        +getAvailableSlots() : int
-    }
-
-    class Ticket {
-        -int ticketId
-        -String entryTime
-        -SlotType type
-        -String slotId
-        -String vehicleDetails
-        +calcFare() : double
-    }
-
-    class Slot {
-        -int slotId
-        -SlotType type
-        -boolean isAvailable
-        +isAvailable() : boolean
-        +assignVehicle(Vehicle) : void
-        +removeVehicle() : void
-    }
-
-    class Vehicle {
-        -String vehicleId
-        -String entryTime
-        -String slotId
-        +getVehicleDetails() : String
-    }
-
-    class Fare {
-        -SlotType type
-        +calculateFare(Ticket) : double
-    }
-
-    class SlotType {
-        <<enumeration>>
-        SMALL
-        MEDIUM
-        LARGE
-    }
-
-    ParkingLot "1" --> "many" Slot
-    ParkingLot "1" --> "many" Ticket
-    ParkingLot "1" --> "many" Vehicle
-    Ticket "1" --> "1" Slot
-    Ticket "many" --> "1" Vehicle
-    Ticket "1" --> "1" SlotType
-    Slot "1" --> "1" SlotType
-    Fare "1" --> "1" SlotType
-```
+![Parking Lot Diagram](diagram.png)
 
 ## What's Included
 
